@@ -77,7 +77,7 @@ export default class Action<
    *
    * @param goal - The action goal to send.
    * @param resultCallback - The callback function when the action is completed.
-   * @param [feedbackCallback] - The callback function when the action pulishes feedback.
+   * @param [feedbackCallback] - The callback function when the action publishes feedback.
    * @param [failedCallback] - The callback function when the action failed.
    */
   sendGoal(
@@ -131,6 +131,17 @@ export default class Action<
       op: "cancel_action_goal",
       id: id,
       action: this.name,
+    });
+  }
+
+  /**
+   * Cancels all action goals.
+   */
+  cancelAllGoals() {
+    this.ros.callOnConnection({
+      op: "call_service",
+      service: `${this.name}/_action/cancel_goal`,
+      args: {},
     });
   }
 

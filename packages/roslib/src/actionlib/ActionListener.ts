@@ -20,9 +20,9 @@ import type { actionlib_msgs } from "../types/actionlib_msgs.ts";
  *
  */
 export default class ActionListener<
-  TGoal,
-  TFeedback,
-  TResult,
+  TGoal = unknown,
+  TFeedback = unknown,
+  TResult = unknown,
 > extends EventEmitter<{
   status: actionlib_msgs.GoalStatus;
   feedback: [TFeedback];

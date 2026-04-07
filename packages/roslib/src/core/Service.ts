@@ -109,6 +109,7 @@ export default class Service<
         id: serviceCallId,
         service: this.name,
         args: request,
+        fragment_size: 1000,
         timeout: timeout,
       });
     });
